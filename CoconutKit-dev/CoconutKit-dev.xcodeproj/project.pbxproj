@@ -75,6 +75,7 @@
 		6F37FEC613EBE478003E33EF /* HLSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F37FE6813EBE478003E33EF /* HLSWebViewController.m */; };
 		6F37FEC713EBE478003E33EF /* HLSWizardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F37FE6A13EBE478003E33EF /* HLSWizardViewController.m */; };
 		6F37FEC913EBE478003E33EF /* CoconutKit_HLSWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F37FE6C13EBE478003E33EF /* CoconutKit_HLSWebViewController.xib */; };
+		6F5991E213F2E4F100B24468 /* HLSPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5991E113F2E4F100B24468 /* HLSPageController.m */; };
 		6F82492713D96B3700688D0C /* StackDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F82492513D96B3700688D0C /* StackDemoViewController.m */; };
 		6F82492813D96B3700688D0C /* StackDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F82492613D96B3700688D0C /* StackDemoViewController.xib */; };
 		6F82497413D9C02200688D0C /* ContainerCustomizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F82497213D9C02200688D0C /* ContainerCustomizationViewController.m */; };
@@ -284,6 +285,9 @@
 		6F37FE6913EBE478003E33EF /* HLSWizardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSWizardViewController.h; sourceTree = "<group>"; };
 		6F37FE6A13EBE478003E33EF /* HLSWizardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSWizardViewController.m; sourceTree = "<group>"; };
 		6F37FE6C13EBE478003E33EF /* CoconutKit_HLSWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoconutKit_HLSWebViewController.xib; sourceTree = "<group>"; };
+		6F5991DF13F2E4F100B24468 /* HLSContainerControllerLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSContainerControllerLoader.h; sourceTree = "<group>"; };
+		6F5991E013F2E4F100B24468 /* HLSPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSPageController.h; sourceTree = "<group>"; };
+		6F5991E113F2E4F100B24468 /* HLSPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSPageController.m; sourceTree = "<group>"; };
 		6F82492413D96B3700688D0C /* StackDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackDemoViewController.h; sourceTree = "<group>"; };
 		6F82492513D96B3700688D0C /* StackDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackDemoViewController.m; sourceTree = "<group>"; };
 		6F82492613D96B3700688D0C /* StackDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StackDemoViewController.xib; sourceTree = "<group>"; };
@@ -630,6 +634,9 @@
 			children = (
 				6F37FE5713EBE478003E33EF /* HLSContainerContent.h */,
 				6F37FE5813EBE478003E33EF /* HLSContainerContent.m */,
+				6F5991DF13F2E4F100B24468 /* HLSContainerControllerLoader.h */,
+				6F5991E013F2E4F100B24468 /* HLSPageController.h */,
+				6F5991E113F2E4F100B24468 /* HLSPageController.m */,
 				6F37FE5B13EBE478003E33EF /* HLSPlaceholderViewController.h */,
 				6F37FE5C13EBE478003E33EF /* HLSPlaceholderViewController.m */,
 				6F37FE5F13EBE478003E33EF /* HLSStackController.h */,
@@ -1437,6 +1444,7 @@
 				6F37FEC513EBE478003E33EF /* HLSViewController.m in Sources */,
 				6F37FEC613EBE478003E33EF /* HLSWebViewController.m in Sources */,
 				6F37FEC713EBE478003E33EF /* HLSWizardViewController.m in Sources */,
+				6F5991E213F2E4F100B24468 /* HLSPageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

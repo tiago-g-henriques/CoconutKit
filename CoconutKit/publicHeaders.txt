@@ -2,6 +2,7 @@ HLSAnimation.h
 HLSAnimationStep.h
 HLSAssert.h
 HLSContainerContent.h
+HLSContainerControllerLoader.h
 HLSConverters.h
 HLSCursor.h
 HLSError.h
@@ -11,6 +12,7 @@ HLSLogger.h
 HLSModelManager.h
 HLSNotifications.h
 HLSOrientationCloner.h
+HLSPageController.h
 HLSPlaceholderViewController.h
 HLSReloadable.h
 HLSRuntime.h
