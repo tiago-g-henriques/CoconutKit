@@ -15,6 +15,7 @@ HLSModelManager.h
 HLSNibView.h
 HLSNotifications.h
 HLSOrientationCloner.h
+HLSPeriodicScrollView.h
 HLSPlaceholderViewController.h
 HLSReloadable.h
 HLSRuntime.h

@@ -15,6 +15,7 @@
 #import "KenBurnsSlideshowDemoViewController.h"
 #import "MultipleViewsAnimationDemoViewController.h"
 #import "ParallelProcessingDemoViewController.h"
+#import "PeriodicScrollViewDemoViewController.h"
 #import "PlaceholderDemoViewController.h"
 #import "SingleViewAnimationDemoViewController.h"
 #import "SkinningDemoViewController.h"
@@ -73,6 +74,7 @@ typedef enum {
     ViewDemoIndexKenBurns,
     ViewDemoIndexSkinning,
     ViewDemoIndexWebView,
+    ViewDemoIndexPeriodicScrollView,
     ViewDemoIndexEnumEnd,
     ViewDemoIndexEnumSize = ViewDemoIndexEnumEnd - ViewDemoIndexEnumBegin
 } ViewDemoIndex;
@@ -312,6 +314,11 @@ typedef enum {
                     cell.textLabel.text = NSLocalizedString(@"Web view", @"Web view");
                     break;
                 }
+                    
+                case ViewDemoIndexPeriodicScrollView: {
+                    cell.textLabel.text = NSLocalizedString(@"Periodic scroll view", @"Periodic scroll view");
+                    break;
+                }
                 
                 default: {
                     return nil;
@@ -462,6 +469,11 @@ typedef enum {
                     
                 case ViewDemoIndexWebView: {
                     demoViewController = [[[WebViewDemoViewController alloc] init] autorelease];
+                    break;
+                }
+                    
+                case ViewDemoIndexPeriodicScrollView: {
+                    demoViewController = [[[PeriodicScrollViewDemoViewController alloc] init] autorelease];
                     break;
                 }
                     

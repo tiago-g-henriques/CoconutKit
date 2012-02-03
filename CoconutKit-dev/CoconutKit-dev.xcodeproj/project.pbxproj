@@ -183,6 +183,8 @@
 		6FADE9F214BA3AB4007EE121 /* UILabel+HLSDynamicLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FADE9F114BA3AB4007EE121 /* UILabel+HLSDynamicLocalization.m */; };
 		6FC900F513D4661100834900 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC900F413D4661100834900 /* CoreData.framework */; };
 		6FCDA16914DAE5E000ED1CD1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FCDA16814DAE5E000ED1CD1 /* QuartzCore.framework */; };
+		6FCDA1A514DBF1FD00ED1CD1 /* HLSPeriodicTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCDA1A414DBF1FD00ED1CD1 /* HLSPeriodicTableView.m */; };
+		6FCDA1AD14DC289000ED1CD1 /* HLSPeriodicScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCDA1AC14DC288F00ED1CD1 /* HLSPeriodicScrollView.m */; };
 		6FDE686B14BC8CFC00F8CD3A /* sample_text.html in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE686A14BC8CFC00F8CD3A /* sample_text.html */; };
 		6FDE688414BC8E9300F8CD3A /* WebViewDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE688214BC8E9300F8CD3A /* WebViewDemoViewController.m */; };
 		6FDE688514BC8E9300F8CD3A /* WebViewDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE688314BC8E9300F8CD3A /* WebViewDemoViewController.xib */; };
@@ -193,6 +195,8 @@
 		6FE8EA9114CFE48E0081F249 /* UINavigationController+HLSActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE8EA9014CFE48E0081F249 /* UINavigationController+HLSActionSheet.m */; };
 		6FEF8542131F76DA0015B57C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEF8541131F76DA0015B57C /* MessageUI.framework */; };
 		6FEF8556131F77490015B57C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF8552131F77490015B57C /* main.m */; };
+		6FF98B5914E00A5F00DD3C04 /* PeriodicScrollViewDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF98B5814E00A5F00DD3C04 /* PeriodicScrollViewDemoViewController.m */; };
+		6FF98B5B14E00A6800DD3C04 /* PeriodicScrollViewDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF98B5A14E00A6800DD3C04 /* PeriodicScrollViewDemoViewController.xib */; };
 		6FFE36E31468FD9D00C02549 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FFE36321468FD9D00C02549 /* Localizable.strings */; };
 		6FFE36E41468FD9D00C02549 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FFE36351468FD9D00C02549 /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -493,6 +497,10 @@
 		6FADE9F114BA3AB4007EE121 /* UILabel+HLSDynamicLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HLSDynamicLocalization.m"; sourceTree = "<group>"; };
 		6FC900F413D4661100834900 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6FCDA16814DAE5E000ED1CD1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6FCDA1A314DBF1FD00ED1CD1 /* HLSPeriodicTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSPeriodicTableView.h; sourceTree = "<group>"; };
+		6FCDA1A414DBF1FD00ED1CD1 /* HLSPeriodicTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSPeriodicTableView.m; sourceTree = "<group>"; };
+		6FCDA1AB14DC288F00ED1CD1 /* HLSPeriodicScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLSPeriodicScrollView.h; sourceTree = "<group>"; };
+		6FCDA1AC14DC288F00ED1CD1 /* HLSPeriodicScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLSPeriodicScrollView.m; sourceTree = "<group>"; };
 		6FDE686A14BC8CFC00F8CD3A /* sample_text.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sample_text.html; sourceTree = "<group>"; };
 		6FDE688114BC8E9300F8CD3A /* WebViewDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewDemoViewController.h; sourceTree = "<group>"; };
 		6FDE688214BC8E9300F8CD3A /* WebViewDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewDemoViewController.m; sourceTree = "<group>"; };
@@ -509,6 +517,9 @@
 		6FEF8552131F77490015B57C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6FEF8554131F77490015B57C /* CoconutKit-dev-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoconutKit-dev-Prefix.pch"; sourceTree = "<group>"; };
 		6FEF8555131F77490015B57C /* CoconutKit-dev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CoconutKit-dev-Info.plist"; sourceTree = "<group>"; };
+		6FF98B5714E00A5F00DD3C04 /* PeriodicScrollViewDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodicScrollViewDemoViewController.h; sourceTree = "<group>"; };
+		6FF98B5814E00A5F00DD3C04 /* PeriodicScrollViewDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodicScrollViewDemoViewController.m; sourceTree = "<group>"; };
+		6FF98B5A14E00A6800DD3C04 /* PeriodicScrollViewDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeriodicScrollViewDemoViewController.xib; sourceTree = "<group>"; };
 		6FFE36331468FD9D00C02549 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		6FFE36361468FD9D00C02549 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -802,6 +813,10 @@
 				6FADE69B14BA04A6007EE121 /* UINavigationBar+HLSExtensions.m */,
 				6FE8EA8F14CFE48E0081F249 /* UINavigationController+HLSActionSheet.h */,
 				6FE8EA9014CFE48E0081F249 /* UINavigationController+HLSActionSheet.m */,
+				6FCDA1AB14DC288F00ED1CD1 /* HLSPeriodicScrollView.h */,
+				6FCDA1AC14DC288F00ED1CD1 /* HLSPeriodicScrollView.m */,
+				6FCDA1A314DBF1FD00ED1CD1 /* HLSPeriodicTableView.h */,
+				6FCDA1A414DBF1FD00ED1CD1 /* HLSPeriodicTableView.m */,
 				6F948C2B14D6E80F003BF765 /* UITextField+HLSExtensions.h */,
 				6F948C2C14D6E80F003BF765 /* UITextField+HLSExtensions.m */,
 				6FADE69C14BA04A6007EE121 /* UITextField+HLSValidation.h */,
@@ -1112,6 +1127,7 @@
 				6FADE83114BA04C8007EE121 /* ActionSheet */,
 				6FADE83514BA04C8007EE121 /* Cursor */,
 				6FADE84514BA04C8007EE121 /* KenBurnsSlideshow */,
+				6FF98B5514E00A4B00DD3C04 /* PeriodicScrollView */,
 				6FDE68A314BD61F400F8CD3A /* Skinning */,
 				6FADE84A14BA04C8007EE121 /* TableViewCells */,
 				6FADE85814BA04C9007EE121 /* TextFields */,
@@ -1358,6 +1374,16 @@
 			name = Shared;
 			sourceTree = "<group>";
 		};
+		6FF98B5514E00A4B00DD3C04 /* PeriodicScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				6FF98B5714E00A5F00DD3C04 /* PeriodicScrollViewDemoViewController.h */,
+				6FF98B5814E00A5F00DD3C04 /* PeriodicScrollViewDemoViewController.m */,
+				6FF98B5A14E00A6800DD3C04 /* PeriodicScrollViewDemoViewController.xib */,
+			);
+			path = PeriodicScrollView;
+			sourceTree = "<group>";
+		};
 		6FFE36311468FD9D00C02549 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -1508,6 +1534,7 @@
 				6FDE688514BC8E9300F8CD3A /* WebViewDemoViewController.xib in Resources */,
 				6FDE68A814BD61F500F8CD3A /* SkinningDemoViewController.xib in Resources */,
 				6FDE68AA14BD6C6E00F8CD3A /* bkgr_bar.png in Resources */,
+				6FF98B5B14E00A6800DD3C04 /* PeriodicScrollViewDemoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1647,6 +1674,9 @@
 				6F7B848714CF1BD90091EE4B /* UIActionSheet+HLSExtensions.m in Sources */,
 				6FE8EA9114CFE48E0081F249 /* UINavigationController+HLSActionSheet.m in Sources */,
 				6F948C2D14D6E80F003BF765 /* UITextField+HLSExtensions.m in Sources */,
+				6FCDA1A514DBF1FD00ED1CD1 /* HLSPeriodicTableView.m in Sources */,
+				6FCDA1AD14DC289000ED1CD1 /* HLSPeriodicScrollView.m in Sources */,
+				6FF98B5914E00A5F00DD3C04 /* PeriodicScrollViewDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
