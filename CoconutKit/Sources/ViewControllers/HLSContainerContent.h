@@ -64,6 +64,7 @@
     CGRect m_originalViewFrame;
     CGFloat m_originalViewAlpha;
     UIViewAutoresizing m_originalAutoresizingMask;
+    BOOL m_firstWillAppearCallAsRoot;
 }
 
 /**
