@@ -42,15 +42,35 @@
 
 #pragma mark View lifecycle
 
-- (void)viewWillAppear:(BOOL)animated
+#if 0
+- (void)viewDidLoad
 {
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
     
     self.noneScrollView.contentSize = self.noneScrollView.frame.size;
     self.verticalScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.verticalScrollView.frame), 1000.f);
     self.horizontalScrollView.contentSize = CGSizeMake(800.f, CGRectGetHeight(self.horizontalScrollView.frame));
     self.bothScrollView.contentSize = CGSizeMake(1000.f, 1000.f);
 }
+#endif
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.noneScrollView.periodicity = HLSScrollViewPeriodicityNone;
+    self.noneScrollView.contentSize = self.noneScrollView.frame.size;
+    
+    self.verticalScrollView.periodicity = HLSScrollViewPeriodicityVertical;
+    self.verticalScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.verticalScrollView.frame), 1000.f);
+    
+    self.horizontalScrollView.periodicity = HLSScrollViewPeriodicityHorizontal;
+    self.horizontalScrollView.contentSize = CGSizeMake(800.f, CGRectGetHeight(self.horizontalScrollView.frame));
+    
+    self.bothScrollView.periodicity = HLSScrollViewPeriodicityBoth;
+    self.bothScrollView.contentSize = CGSizeMake(1000.f, 1000.f);
+}
+
 
 #pragma mark Orientation management
 
