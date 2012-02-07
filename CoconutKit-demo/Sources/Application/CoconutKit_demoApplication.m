@@ -47,6 +47,8 @@
         if ([demoMode isEqualToString:@"RootStack"]) {
             RootStackDemoViewController *rootStackDemoViewController = [[[RootStackDemoViewController alloc] init] autorelease];
             HLSStackController *stackController = [[[HLSStackController alloc] initWithRootViewController:rootStackDemoViewController] autorelease];
+            RootStackDemoViewController *otherRootStackDemoViewController = [[[RootStackDemoViewController alloc] init] autorelease];
+            [stackController pushViewController:otherRootStackDemoViewController];
             self.rootViewController = stackController;
         }
         else {

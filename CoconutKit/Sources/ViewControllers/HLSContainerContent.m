@@ -13,6 +13,8 @@
 #import "HLSFloat.h"
 #import "HLSLogger.h"
 #import "HLSRuntime.h"
+#import "NSDictionary+HLSExtensions.h"
+#import "NSObject+HLSExtensions.h"
 
 // Constants
 static CGFloat kPushFrom2ScaleFactor = 0.95f;
@@ -20,6 +22,8 @@ static CGFloat kEmergeFromCenterScaleFactor = 0.01f;      // cannot use 0.f, oth
 
 // Keys for runtime container - view controller object association
 static void *s_containerContentKey = &s_containerContentKey;
+
+static NSMutableDictionary *s_swizzledImpToImpMap = nil;
 
 static id (*s_UIViewController__navigationController_Imp)(id, SEL) = NULL;
 static id (*s_UIViewController__navigationItem_Imp)(id, SEL) = NULL;
@@ -30,6 +34,7 @@ static void (*s_UIViewController__setHidesBottomBarWhenPushed_Imp)(id, SEL, BOOL
 static void (*s_UIViewController__setToolbarItems_Imp)(id, SEL, id) = NULL;
 static void (*s_UIViewController__setToolbarItems_animated_Imp)(id, SEL, id, BOOL) = NULL;
 
+static void (*s_UIViewController__initialize_Imp)(id, SEL) = NULL;
 static void (*s_UIViewController__presentViewController_animated_completion_Imp)(id, SEL, id, BOOL, void (^)(void)) = NULL;
 static void (*s_UIViewController__dismissViewControllerAnimated_completion_Imp)(id, SEL, BOOL, void (^)(void)) = NULL;
 static void (*s_UIViewController__presentModalViewController_animated_Imp)(id, SEL, id, BOOL) = NULL;
@@ -101,6 +106,8 @@ static void swizzledForwardSetter_id_BOOL(UIViewController *self, SEL _cmd, id v
 @end
 
 @interface UIViewController (HLSContainerContent)
+
++ (void)swizzledInitialize;
 
 - (void)swizzledPresentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion;
 - (void)swizzledDismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion;
@@ -1166,6 +1173,67 @@ static void swizzledForwardSetter_id_BOOL(UIViewController *self, SEL _cmd, id v
     s_UIViewController__presentedViewController_Imp = (id (*)(id, SEL))HLSSwizzleSelector(self, 
                                                                                           @selector(presentedViewController), 
                                                                                           @selector(swizzledPresentedViewController));
+    
+    s_UIViewController__initialize_Imp = (void (*)(id, SEL))HLSSwizzleClassSelector(self, @selector(initialize), @selector(swizzledInitialize));    
+}
+
++ (void)swizzledInitialize
+{
+    // No class identity test here. We want this code to be executed for each class within the UIViewController class hierarchy
+    
+    __block void (^s_swizzledViewWillAppear)(id, SEL, BOOL);
+    s_swizzledViewWillAppear = [^(id self, SEL _cmd, BOOL animated) {
+        HLSContainerContent *containerContent = objc_getAssociatedObject(self, s_containerContentKey);
+        if (containerContent 
+            && [containerContent.containerController isKindOfClass:[UIViewController class]]) {        
+            // If the container is the root of the application or of a modal (we here use a clue: no key window subviews 
+            // exist yet though the a view controller's view is appearing), abort the method call
+            if ([[[[UIApplication sharedApplication] keyWindow] subviews] count] == 0) {
+                return;
+            }
+        }
+        
+        // Call the original implementation
+        IMP origImp = [[s_swizzledImpToImpMap objectForKey:s_swizzledViewWillAppear] pointerValue];
+        (*origImp)(self, @selector(viewWillAppear:), animated);
+    } copy];
+    
+    __block void (^s_swizzledViewDidAppear)(id, SEL, BOOL);
+    s_swizzledViewDidAppear = [^(id self, SEL _cmd, BOOL animated) {
+        HLSContainerContent *containerContent = objc_getAssociatedObject(self, s_containerContentKey);
+        if (containerContent 
+            && [containerContent.containerController isKindOfClass:[UIViewController class]]) {
+            UIViewController *containerViewController = (UIViewController *)containerContent.containerController;
+            
+            // If the container is the root of the application or of a modal (we here use a clue: the view controller's
+            // view is a window subview), abort the method call
+            if ([[[[UIApplication sharedApplication] keyWindow] subviews] containsObject:containerViewController.view]) {
+                return;
+            }
+        }
+        
+        // Call the original implementation
+        IMP origImp = [[s_swizzledImpToImpMap objectForKey:s_swizzledViewDidAppear] pointerValue];
+        (*origImp)(self, @selector(viewDidAppear:), animated);
+    } copy];
+    
+    if (! s_swizzledImpToImpMap) {
+        s_swizzledImpToImpMap = [[NSMutableDictionary dictionary] retain];
+    }
+    
+    // Generating an IMP from a block: This allows us to create IMPs with different addresses so that we can get 
+    // a bijection between original and swizzled implementations
+    Method viewWillAppearOrigMethod = class_getInstanceMethod(self, @selector(viewWillAppear:));
+    IMP viewWillAppearOrigImp = method_getImplementation(viewWillAppearOrigMethod);
+    IMP viewWillAppearSwizzledImp = imp_implementationWithBlock(s_swizzledViewWillAppear);
+    [s_swizzledImpToImpMap setObject:[NSValue valueWithPointer:viewWillAppearOrigImp] forKey:s_swizzledViewWillAppear];
+    class_replaceMethod(self, @selector(viewWillAppear:), viewWillAppearSwizzledImp, method_getTypeEncoding(viewWillAppearOrigMethod));
+    
+    Method viewDidAppearOrigMethod = class_getInstanceMethod(self, @selector(viewDidAppear:));
+    IMP viewDidAppearOrigImp = method_getImplementation(viewDidAppearOrigMethod);
+    IMP viewDidAppearSwizzledImp = imp_implementationWithBlock(s_swizzledViewDidAppear);
+    [s_swizzledImpToImpMap setObject:[NSValue valueWithPointer:viewDidAppearOrigImp] forKey:s_swizzledViewDidAppear];
+    class_replaceMethod(self, @selector(viewDidAppear:), viewDidAppearSwizzledImp, method_getTypeEncoding(viewDidAppearOrigMethod));        
 }
 
 /**
